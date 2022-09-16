@@ -1,0 +1,53 @@
+
+<div class="row-md-6" align="center">
+  <div class="col-md-6" >
+  <div class="card" >
+    <div class="card-body" >
+      <h4 class="card-title"> Edit Ticket: {{ticket.demande}}</h4>
+      <form #myForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group" align="left">
+          <label ><strong>Demande</strong></label>
+          <input type="text"   [(ngModel)]="ticket.demande"  name="name" class="form-control" id="demande" placeholder="demande" required>
+        </div>
+        <input type="hidden" ngModel="{{ticket?.reference}}" name="id" class="form-control" id="reference" placeholder="reference">
+        <div class="form-group" align="left">
+          <label for="email_second"><strong>Email secondaire</strong></label>
+          <input type="email" ngModel="email_second"  [(ngModel)]="ticket.email_second" name="email_second" class="form-control" id="email_second" placeholder="email_second" required>
+        </div>
+        <div class="form-Group" align="left">
+          <label for="gravite"> <strong>Gravity</strong></label>
+          <input type="text" ngModel="gravite"  [(ngModel)]="ticket.gravite" name="gravite" class="form-control" id="gravite" placeholder="gravite" required >
+        </div>
+
+
+        <div class="form-Group" align="left">
+          <label for="raison"><Strong>Raison</Strong> </label>
+          <input type="text"  [(ngModel)]="ticket.raison" ngModel="raison"  name="raison" class="form-control" id="raison" placeholder="raison" required >
+        </div>
+        <div class="form-Group" align="left">
+          <label for="status"><Strong>Status</Strong> </label>
+          <input type="text"  [(ngModel)]="ticket.status" ngModel="status"  name="status" class="form-control" id="status" placeholder="status" required >
+        </div>
+        <div class="form-Group" align="left">
+          <label for="pays"><Strong>Pays</Strong> </label>
+          <input type="text"  [(ngModel)]="ticket.pays" ngModel="pays"  name="pays" class="form-control" id="pays" placeholder="pays" required >
+        </div>
+
+
+
+        <div class="modal-footer">
+          <button  type="submit" class="btn btn-primary" >Save changes</button>
+          <button type="button" id="" class="btn btn-secondary" data-dismiss="modal" routerLink="/ticketDetails/{{ref}}">Close</button>
+
+
+        </div>
+      </form>
+
+
+    </div>
+
+  </div>
+
+  </div>
+
+</div>
