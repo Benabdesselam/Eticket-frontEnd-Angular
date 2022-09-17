@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Client} from "../model/Client";
-import {map} from "rxjs";
+import {map, Observable} from "rxjs";
+import {User} from "../model/User";
+import {resolve} from "@angular/compiler-cli";
 
 @Injectable({
   providedIn: 'root'
@@ -15,23 +17,39 @@ export class AuthService {
   public authenticated!: boolean;
   public authenticatedUser!:any;
   public nameUser!:any;
-  private users=[
-    {username:"admin", password:"1234",roles:['USER','ADMIN']},
-    {username:"user1", password:"1234",roles:['USER']},
-    {username:"user2", password:"1234",roles:['USER']}
-  ]
+  private users!:User[]
 
-  constructor(private http:HttpClient) {
+
+  constructor(private http:HttpClient ) {
   }
+
+  public getUsers():Observable<User[]>{
+    return this.http.get<User[]>(`${this.apiServerUrl}/user/allUser`);
+  }
+
+
+  public addUser(user:User):Observable<User>{
+    return this.http.post<User>(`${this.apiServerUrl}/user/addUser`,user);
+  }
+
+
+  public getU():void{
+    this.getUsers().subscribe((response:User[])=>{
+      this.users=response;
+    })
+  }
+
+
+
 
   login(username:string,password:string){
     let user;
-    this.users.forEach(u=>{
-      if(u.username===username && u.password===password){
-        user=u;
-        this.nameUser=u.username;
+    for (const u of this.users) {
+      if (u.username === username && u.password === password) {
+        user = u;
+        this.nameUser = u.username;
       }
-    })
+    }
     if(user){
       this.authenticated=true;
       this.authenticatedUser=user;
@@ -42,8 +60,8 @@ export class AuthService {
     else{
       this.authenticated=false;
     }
-  }
 
+  }
   loadUser(){
     let user=localStorage.getItem('authenticatedUser');
     if(user){
@@ -67,6 +85,5 @@ export class AuthService {
     this.authenticatedUser=undefined;
     localStorage.removeItem('authenticatedUser');
   }
-
 
 }

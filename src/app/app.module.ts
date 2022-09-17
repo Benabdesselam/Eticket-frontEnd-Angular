@@ -14,6 +14,8 @@ import { EditTicketComponent } from './edit-ticket/edit-ticket.component';
 import { ChatComponent } from './chat/chat.component';
 import { LoginComponent } from './login/login.component';
 import {AuthService} from "./services/auth.service";
+import { HomeComponent } from './home/home.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import {AuthService} from "./services/auth.service";
     TicketDetailsComponent,
     EditTicketComponent,
     ChatComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
