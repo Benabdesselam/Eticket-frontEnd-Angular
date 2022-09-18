@@ -22,6 +22,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.authService.getUsers().subscribe(u=>{
+      this.lista=u;
+    })
   }
 
 

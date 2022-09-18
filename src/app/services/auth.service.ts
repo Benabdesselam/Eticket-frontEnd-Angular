@@ -17,10 +17,18 @@ export class AuthService {
   public authenticated!: boolean;
   public authenticatedUser!:any;
   public nameUser!:any;
-  private users!:User[]
+  public users!:User[]
 
 
   constructor(private http:HttpClient ) {
+
+    this.getUsers().subscribe(u=>{
+      this.users=u;
+
+    })
+  }
+  ngOnInit(): void {
+
   }
 
   public getUsers():Observable<User[]>{
@@ -33,11 +41,6 @@ export class AuthService {
   }
 
 
-  public getU():void{
-    this.getUsers().subscribe((response:User[])=>{
-      this.users=response;
-    })
-  }
 
 
 
@@ -45,6 +48,7 @@ export class AuthService {
   login(username:string,password:string){
     let user;
     for (const u of this.users) {
+
       if (u.username === username && u.password === password) {
         user = u;
         this.nameUser = u.username;
@@ -73,6 +77,12 @@ export class AuthService {
   isAdmin(){
     if(this.authenticatedUser){
       return this.authenticatedUser.roles.indexOf("ADMIN")>-1;
+    }
+    else return false;
+  }
+  isSupport(){
+    if(this.authenticatedUser){
+      return this.authenticatedUser.roles.indexOf("SUPPORT")>-3;
     }
     else return false;
   }

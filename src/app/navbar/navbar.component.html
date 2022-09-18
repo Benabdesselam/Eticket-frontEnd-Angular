@@ -19,10 +19,10 @@
           <a class="nav-link"  routerLink="tickets" > MyTicket</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  >Chat</a>
+          <a class="nav-link" *ngIf="(auth.isSupport() || auth.isAdmin())" >Chat</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  routerLink="clients" >Client</a>
+          <a class="nav-link"  routerLink="clients"  *ngIf="auth.isAdmin()">Client</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>

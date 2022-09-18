@@ -30,7 +30,7 @@
             <th>Demande</th><th>createdAt</th><th>Status</th><th>Client</th>
           </tr>
           </thead>
-          <tbody>
+          <tbody *ngIf="auth.isAdmin()">
           <tr *ngFor="let t of tickets ">
             <td> {{t?.demande}} </td>
             <td>{{t?.createdAt |  date: 'dd/MM/yyyy'}} </td>
