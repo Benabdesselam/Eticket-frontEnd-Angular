@@ -1,4 +1,4 @@
-
+<div *ngIf="auth.isAuthenticated()">
 <div class="container mt-2" id="main-container" *ngIf="isAdmin">
 
   <nav class="p-8 m-8 border-info">
@@ -18,7 +18,7 @@
 
               <label class="input-group-text">Keyword :</label>
               <input type="search" (ngModelChange)="searchTickets(key.value)" #key="ngModel" ngModel
-                     name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search Clients..." required>
+                     name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search Ticket..." required>
 
             </div>
           </form>
@@ -187,4 +187,5 @@
     </div>
 </div>
 
+</div>
 </div>

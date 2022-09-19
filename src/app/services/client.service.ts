@@ -14,6 +14,9 @@ private apiServerUrl=environment.apiBaseUrl;
   public getClients():Observable<Client[]>{
     return this.http.get<Client[]>(`${this.apiServerUrl}/client/allClient`);
   }
+  public getClient(userId:number):Observable<Client>{
+    return this.http.get<Client>(`${this.apiServerUrl}/client/myClient`);
+  }
 
   public addClient(client:Client):Observable<Client>{
     return this.http.post<Client>(`${this.apiServerUrl}/client/addClient`,client);

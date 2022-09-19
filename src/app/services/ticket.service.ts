@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Client} from "../model/Client";
 import {Ticket} from "../model/Ticket";
+import {User} from "../model/User";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,9 @@ export class TicketService {
 
   public getTickets():Observable<Ticket[]>{
     return this.http.get<Ticket[]>(`${this.apiServerUrl}/ticket/allTicket`);
+  }
+  public getTicketsByClient(id:number):Observable<Ticket[]>{
+    return this.http.get<Ticket[]>(`${this.apiServerUrl}/ticket/myTicket/${id}`);
   }
 
   public getTicketByReference(reference: string ):Observable<Ticket>{

@@ -1,42 +1,48 @@
 <!--Main Navigation-->
-<header>
+
   <style>
     #intro {
       height: 100vh;
     }
 
     /* Height for devices larger than 576px */
-    @media (min-width: 992px) {
-      #intro {
-        margin-top: -58.59px;
-      }
-    }
 
-    .navbar .nav-link {
-      color: #fff !important;
+
+    body {
+      background-image: url("assets/img/expertise.jpeg") ;
+      background-color: #292b2c;
+      no-repeat: center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      background-size: cover;
+      -o-background-size: cover;
     }
+      /* The image used */
+
+
+
+
   </style>
 
 
 
 
   <!-- Background image -->
-  <div id="intro" class="bg-image shadow-2-strong">
-    <div class="mask" style="background-color: rgba(0, 0, 0, 0.8);">
-      <div class="container d-flex align-items-center justify-content-center text-center h-100">
-        <div class="text-white">
-          <h1 class="mb-3">Learn Bootstrap 5 with MDB</h1>
-          <h5 class="mb-4">Best & free guide of responsive web design</h5>
-          <a class="btn btn-outline-light btn-lg m-2" href="https://www.youtube.com/watch?v=c9B4TPnak1A" role="button"
-             rel="nofollow" target="_blank">Start tutorial</a>
-          <a class="btn btn-outline-light btn-lg m-2" href="https://mdbootstrap.com/docs/standard/" target="_blank"
-             role="button">Download MDB UI KIT</a>
-        </div>
+
+  <div class="container" style="background-color: #d9534f" *ngIf="authService.isAuthenticated()">
+    <div class="card border-0 shadow my-5" >
+      <div class="card-body p-5" align="center" >
+        <h1  class="fw-light">E-solution E-tickets</h1>
+        <p class="lead">Notre solution de gestion des tickets et incidents vous permet de rassembler les demandes de type incidents et problèmes des utilisateurs et de les traiter dans les meilleurs délais. Connu sous le nom de E-solution E-tickets sertvice Desk, ce logiciel performant prend en charge l’enregistrement et la classification de vos tickets et incidents suivant leur degré d’urgence et criticité, leurs catégories / sous catégories , leurs origines et les niveaux d’intervention requis.
+
+          D’autre part, notre outil de gestion des tickets d’incidents permet la mise en place d’alertes et la communication par mail, ce qui accroît de manière significative la réactivité et l’efficacité de l’équipe de support. Il contribue ainsi à l’amélioration de la qualité de services fournie aux utilisateurs et à l’atténuation de l’impact des incidents sur l’activité de l’entreprise.</p>
+
+        <p class="lead mb-0"></p>
       </div>
     </div>
   </div>
   <!-- Background image -->
-</header>
+
 
 
 

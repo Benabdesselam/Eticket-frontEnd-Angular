@@ -3,6 +3,7 @@ import {Client} from "../model/Client";
 import {CLientService} from "../services/client.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {NgForm} from "@angular/forms";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-client',
@@ -14,7 +15,7 @@ export class ClientComponent implements OnInit {
     public editClient!: Client;
   public deleteClient!: Client;
 
-  constructor(private clientService:CLientService) { }
+  constructor(private clientService:CLientService,public authService:AuthService) { }
 
   ngOnInit(): void {
     this.getClients();

@@ -12,6 +12,7 @@ import {Gravite} from "../model/Gravite";
 
 import {CLientService} from "../services/client.service";
 import {HttpErrorResponse} from "@angular/common/http";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-edit-ticket',
@@ -35,7 +36,8 @@ export class EditTicketComponent implements OnInit {
   constructor(private ticketService:TicketService,
               private route:ActivatedRoute,
               private router:Router,
-              private clientService:CLientService) {
+              private clientService:CLientService,
+              public authService:AuthService) {
 
   }
 

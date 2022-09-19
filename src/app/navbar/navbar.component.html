@@ -16,7 +16,7 @@
           <a class="nav-link"  routerLink="tickets" >Ticket</a>
         </li>
         <li class="nav-item" *ngIf="!auth.isAdmin()" >
-          <a class="nav-link"  routerLink="tickets" > MyTicket</a>
+          <a class="nav-link"  routerLink="My-ticket/{{auth.authenticatedUser.id}}" > MyTicket</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" *ngIf="(auth.isSupport() || auth.isAdmin())" >Chat</a>
