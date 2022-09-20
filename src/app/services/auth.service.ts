@@ -82,7 +82,7 @@ export class AuthService {
   }
   isSupport(){
     if(this.authenticatedUser){
-      return this.authenticatedUser.roles.indexOf("SUPPORT")>-3;
+      return this.authenticatedUser.roles=="SUPPORT";
     }
     else return false;
   }

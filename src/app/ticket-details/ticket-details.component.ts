@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {TicketService} from "../services/ticket.service";
 import {Ticket} from "../model/Ticket";
 import {Observable} from "rxjs";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-ticket-details',
@@ -14,7 +15,7 @@ export class TicketDetailsComponent implements OnInit {
   public ref! : string;
   errorMessage! :string;
 
-  constructor(private route:ActivatedRoute,private router:Router,private ticketService:TicketService) {
+  constructor(private route:ActivatedRoute,private router:Router,private ticketService:TicketService,public authService:AuthService) {
      //this.ticket=this.router.getCurrentNavigation()?.extras.state as Ticket;
 
   }

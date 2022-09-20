@@ -34,7 +34,7 @@
       <div class="card mb-4">
 
         <div class="card-header">
-          <div class="content">
+          <div class="content" *ngIf="(authService.isSupport()||authService.isAdmin())">
             <button type="button" routerLink="/editTicket/{{ref}}" class="btn btn-primary pull-right" id="right-panel-link" >Edit</button>
             <div>
             </div>
