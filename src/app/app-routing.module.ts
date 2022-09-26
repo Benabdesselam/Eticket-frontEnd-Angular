@@ -11,6 +11,7 @@ import {HomeComponent} from "./home/home.component";
 import {SignUpComponent} from "./sign-up/sign-up.component";
 import {AuthenticationGuard} from "./guards/authentication.guard";
 import {MyTicketComponent} from "./my-ticket/my-ticket.component";
+import {ChatComponent} from "./chat/chat.component";
 
 const routes: Routes = [
   { path :"" , component: LoginComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
 
   { path :"tickets" , component: TicketComponent},
   { path :"My-ticket/:id" , component: MyTicketComponent},
+  { path :"chat" , component: ChatComponent},
 
   { path :"ticketDetails/:reference" , component: TicketDetailsComponent},
   { path :"editTicket/:reference" , component: EditTicketComponent},
